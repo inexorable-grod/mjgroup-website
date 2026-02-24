@@ -1,0 +1,17 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lightning bolt mark -->
+  <g transform="translate(0, 5)">
+    <!-- Outer geometric shape -->
+    <path d="M5 45L20 5h15L30 25h12L18 50h-8l5-15H5z" fill="#0EA5E9" opacity="0.9"/>
+    <path d="M10 45L25 5h15L35 25h10L22 50h-7l4-15H10z" fill="#F97316" opacity="0.5"/>
+    <!-- Inner bolt -->
+    <path d="M22 8L12 32h10l-5 18 18-24H27l5-18z" fill="white" opacity="0.9"/>
+  </g>
+  <!-- Text -->
+  <text x="55" y="28" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#e2e8f0">
+    <tspan fill="#e2e8f0">MJ </tspan><tspan fill="#0EA5E9">Group</tspan><tspan fill="#94a3b8"> SAS</tspan>
+  </text>
+  <text x="55" y="45" font-family="Arial, sans-serif" font-size="10" fill="#F97316" letter-spacing="0.5">
+    Servicios y Construcciones Eléctricas
+  </text>
+</svg>

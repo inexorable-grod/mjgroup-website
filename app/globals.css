@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  /* Brand colors */
+  --color-electric-50: #f0f9ff;
+  --color-electric-100: #e0f2fe;
+  --color-electric-200: #bae6fd;
+  --color-electric-300: #7dd3fc;
+  --color-electric-400: #38bdf8;
+  --color-electric-500: #0ea5e9;
+  --color-electric-600: #0284c7;
+  --color-electric-700: #0369a1;
+  --color-electric-800: #075985;
+  --color-electric-900: #0c4a6e;
+
+  --color-power-50: #fff7ed;
+  --color-power-100: #ffedd5;
+  --color-power-200: #fed7aa;
+  --color-power-300: #fdba74;
+  --color-power-400: #fb923c;
+  --color-power-500: #f97316;
+  --color-power-600: #ea580c;
+  --color-power-700: #c2410c;
+  --color-power-800: #9a3412;
+  --color-power-900: #7c2d12;
+
+  --color-carbon-50: #f8fafc;
+  --color-carbon-100: #f1f5f9;
+  --color-carbon-200: #e2e8f0;
+  --color-carbon-300: #cbd5e1;
+  --color-carbon-400: #94a3b8;
+  --color-carbon-500: #64748b;
+  --color-carbon-600: #475569;
+  --color-carbon-700: #334155;
+  --color-carbon-800: #1e293b;
+  --color-carbon-900: #0f172a;
+  --color-carbon-950: #080d1a;
+
+  /* Font families - mapped from next/font CSS variables */
+  --font-display: var(--font-bebas), sans-serif;
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  /* Animations */
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px #0ea5e9; }
+  to { box-shadow: 0 0 30px #0ea5e9, 0 0 60px rgba(14, 165, 233, 0.25); }
+}
+
+/* CSS Variables for theming */
+:root {
+  --background: 248 250 252;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --primary: 14 165 233;
+  --primary-foreground: 255 255 255;
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+  --accent: 249 115 22;
+  --ring: 14 165 233;
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: 8 13 26;
+  --foreground: 241 245 249;
+  --card: 15 26 46;
+  --card-foreground: 241 245 249;
+  --border: 30 41 69;
+  --input: 30 41 69;
+  --primary: 14 165 233;
+  --primary-foreground: 8 13 26;
+  --muted: 17 24 39;
+  --muted-foreground: 148 163 184;
+  --accent: 249 115 22;
+  --ring: 14 165 233;
+}
+
+* { border-color: rgb(var(--border)); }
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family: var(--font-dm-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgb(var(--background)); }
+::-webkit-scrollbar-thumb { background: rgba(14, 165, 233, 0.6); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(14, 165, 233); }
+
+/* Utility classes */
+.display { font-family: var(--font-bebas), sans-serif; letter-spacing: 0.04em; line-height: 0.95; }
+.mono { font-family: var(--font-jetbrains), monospace; }
+.gradient-text {
+  background: linear-gradient(135deg, #0ea5e9, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.glass {
+  background: rgba(var(--card), 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(var(--border));
+}
+.electric-border {
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.1), inset 0 0 0 1px rgba(14, 165, 233, 0.05);
+}
+.power-glow {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.3), 0 0 40px rgba(14, 165, 233, 0.1);
+}
+.section-padding { padding: 6rem 0; }
+
+/* Marquee animation for clients */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.animate-scroll-left { animation: scroll-left 30s linear infinite; }
+.animate-scroll-right { animation: scroll-right 30s linear infinite; }

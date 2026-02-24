@@ -1,0 +1,25 @@
+name: CI
+on:
+  pull_request:
+    branches: [main, dev]
+  push:
+    branches: [main]
+
+jobs:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run type-check
+      - run: npm run build
+        env:
+          NEXTAUTH_SECRET: ci-test-secret-not-real
+          NEXTAUTH_URL: http://localhost:3000
+          ADMIN_USERNAME: admin
+          ADMIN_PASSWORD_HASH: $2b$12$placeholder.hash.for.ci.only.not.real.pwd
